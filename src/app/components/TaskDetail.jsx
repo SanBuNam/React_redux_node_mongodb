@@ -15,7 +15,7 @@ const TaskDetail = ({
 }) => (
   <div>
     <div>
-      <input onChange={setTaskName} value={task.name} />
+      <input type="text" value={task.name} onChange={setTaskName} />
     </div>
     <div>
       <button onClick={() => setTaskCompletion(id, !isComplete)}>
@@ -53,7 +53,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = (dispatch, ownProps) => {
-  const id = ownProps.match.params.id;
+  let id = ownProps.match.params.id;
   return {
     setTaskCompletion(id, isComplete) {
       dispatch(mutations.setTaskCompletion(id, isComplete));
